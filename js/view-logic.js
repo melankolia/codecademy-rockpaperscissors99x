@@ -182,7 +182,7 @@ function getWinnerText(winner) {
   } else if (winner === PLAYER_TWO) {
     return (playerMode === COMPUTER_PLAYER_MODE) ? 'Computer Player Won!' : 'Player Two Won!';
   } else if (winner === TIE) {
-    return 'PELEEEEEER!';
+    return 'Tie';
   }
 }
 
