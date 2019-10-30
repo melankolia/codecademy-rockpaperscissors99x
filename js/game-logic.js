@@ -27,12 +27,12 @@ const isValidMoveValue = moveValue => {
 
 const setComputerMoves = () => {
     const cpuMove = ['rock','paper','scissors'];
-    moveOneType = Math.floor(Math.random() * 3);
-    moveTwoType = Math.floor(Math.random() * 3);
-    moveThreeType = Math.floor(Math.random() * 3);
-    moveOneValue = Math.floor(Math.random() * 98);
-    moveTwoValue = Math.floor(Math.random() * (moveOneValue - 98));
-    moveThreeValue = 99 - moveOneValue - moveTwoValue;
+    const moveOneType = cpuMove[Math.floor(Math.random() * 3)];
+    const moveTwoType = cpuMove[Math.floor(Math.random() * 3)];
+    const moveThreeType = cpuMove[Math.floor(Math.random() * 3)];
+    const moveOneValue = Math.floor(Math.random() * 98);
+    const moveTwoValue = Math.floor(Math.random() * (moveOneValue - 98));
+    const moveThreeValue = 99 - moveOneValue - moveTwoValue;
     setPlayerMoves('Player Two', moveOneType, moveOneValue, moveTwoType, moveTwoValue, moveThreeType, moveThreeValue);
 
 }
