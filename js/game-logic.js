@@ -123,10 +123,36 @@ const getRoundWinner = roundNumber => {
     }
 }
 
+const addWin = roundWinner => {
+    if (roundWinner === 'Player One'){
+        playerOneWins += 1;
+    }
+    else if (roundWinner === 'Player Two'){
+        playerTwoWins += 1;
+    }
+}
+
 const getGameWinner = () => {
     if (!playerOneMoveOneType   || !playerOneMoveOneValue   || !playerTwoMoveOneType    || !playerTwoMoveOneValue   ||
         !playerOneMoveTwoType   || !playerOneMoveTwoValue   || !playerTwoMoveTwoType    || !playerTwoMoveTwoValue   ||
         !playerOneMoveThreeType || !playerOneMoveThreeValue || !playerTwoMoveThreeType  || !playerTwoMoveThreeValue ){
             return null;
         }
+    playerOneWins = 0;
+    playerTwoWins = 0;
+    
+    addWin(getRoundWinner(1));
+    addWin(getRoundWinner(2));
+    addWin(getRoundWinner(3));
+
+    if (playerOneWins > playerTwoWins){
+        return 'Player One';
+    }
+    else if (playerOneWins < playerTwoWins){
+        return 'Player Two';
+    }
+    else {
+        return 'Tie';
+    }
+
 }
