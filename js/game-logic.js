@@ -16,11 +16,25 @@ let playerOneMoveOneType,
     playerOneWins,
     playerTwoWins
 
+
+
 const isValidMoveType = moveType => {
     return moveType === 'rock' || moveType === 'paper' || moveType === 'scissors';
 }
 const isValidMoveValue = moveValue => {
     return moveValue >= 1 && moveValue <= 99;
+}
+
+const setComputerMoves = () => {
+    const cpuMove = ['rock','paper','scissors'];
+    moveOneType = Math.floor(Math.random() * 3);
+    moveTwoType = Math.floor(Math.random() * 3);
+    moveThreeType = Math.floor(Math.random() * 3);
+    moveOneValue = Math.floor(Math.random() * 98);
+    moveTwoValue = Math.floor(Math.random() * (moveOneValue - 98));
+    moveThreeValue = 99 - moveOneValue - moveTwoValue;
+    setPlayerMoves('Player Two', moveOneType, moveOneValue, moveTwoType, moveTwoValue, moveThreeType, moveThreeValue);
+
 }
 const getMoveWinner = (playerOneMoveOneType, playerOneMoveOneValue, playerTwoMoveOneType, playerTwoMoveOneValue) => {
     if (!isValidMoveType(playerOneMoveOneType) || !isValidMoveType(playerTwoMoveOneType) || 
@@ -33,7 +47,7 @@ const getMoveWinner = (playerOneMoveOneType, playerOneMoveOneValue, playerTwoMov
         if (playerOneMoveOneValue === playerTwoMoveOneValue){
             return 'Tie';    
         } 
-        else if (playerOneMoveOneValue >= playerTwoMoveOneValue){
+        else if (playerOneMoveOneValue > playerTwoMoveOneValue){
             return 'Player One';
         }
         else {
@@ -156,3 +170,4 @@ const getGameWinner = () => {
     }
 
 }
+
