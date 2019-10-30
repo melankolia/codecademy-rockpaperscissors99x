@@ -11,7 +11,10 @@ let playerOneMoveOneType,
     playerTwoMoveTwoType,
     playerTwoMoveTwoValue,
     playerTwoMoveThreeType,
-    playerTwoMoveThreeValue
+    playerTwoMoveThreeValue,
+
+    playerOneWins,
+    playerTwoWins
 
 const isValidMoveType = moveType => {
     return moveType === 'rock' || moveType === 'paper' || moveType === 'scissors';
@@ -121,5 +124,9 @@ const getRoundWinner = roundNumber => {
 }
 
 const getGameWinner = () => {
-
+    if (!playerOneMoveOneType   || !playerOneMoveOneValue   || !playerTwoMoveOneType    || !playerTwoMoveOneValue   ||
+        !playerOneMoveTwoType   || !playerOneMoveTwoValue   || !playerTwoMoveTwoType    || !playerTwoMoveTwoValue   ||
+        !playerOneMoveThreeType || !playerOneMoveThreeValue || !playerTwoMoveThreeType  || !playerTwoMoveThreeValue ){
+            return null;
+        }
 }
